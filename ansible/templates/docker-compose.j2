@@ -1,7 +1,7 @@
 version: '3'
 services:
   vprodb:
-    image: {{nexus_host}}:{{nexus_docker_port}}/{{nexus_docker_repo}}/db:V2
+    image: {{nexus_host}}:{{nexus_docker_port}}/{{nexus_docker_repo}}/vprodb:V2
     ports:
       - "3306:3306"
     volumes:
@@ -23,14 +23,14 @@ services:
       - RABBITMQ_DEFAULT_PASS=guest
 
   vproapp:
-    image: {{nexus_host}}:{{nexus_docker_port}}/{{nexus_docker_repo}}/app:V2
+    image: {{nexus_host}}:{{nexus_docker_port}}/{{nexus_docker_repo}}/vproapp:V2
     ports:
       - "8098:8080"
     volumes:
       - vproappdata:/usr/local/tomcat/webapps
 
   vproweb:
-    image: {{nexus_host}}:{{nexus_docker_port}}/{{nexus_docker_repo}}/web:V2
+    image: {{nexus_host}}:{{nexus_docker_port}}/{{nexus_docker_repo}}/vproweb:V2
     ports:
       - "80:80"
 volumes:
